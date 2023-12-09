@@ -1,0 +1,15 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="https://az000za.github.io/DevCore/Data.html"></script>
+    <script type="text/javascript">
+        class UINode {
+            id = null;
+            constructor(app){
+                console.log("ui node", this);
+                console.log("app", app);
+                console.log("uiNodeManager", app.uiNodeManager);
+                app.uiNodeManager.insertNode(this);
+            }
+        }
+    </script>
+</html>
