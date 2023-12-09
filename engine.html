@@ -1,0 +1,94 @@
+<html>
+  <body id="root"></body>
+  <script type="text/javascript" src="./ui/data.html"></script>
+  <script type="text/javascript" filename="ExeEngine.js">
+    class ExeEngine {
+      constructor(functions) {
+        this.functions = functions;
+        this.graph = createDependencyGraph(functions);
+        this.visited = new Set();
+        this.order = [];
+
+        // needs to have kind of essential cycles seperate from
+        // the requested functions to execute
+        // such as what to do when no more functions to execute
+        // or how do I pause the engine?
+        // or how do I delete the nodes
+        
+        this.entryNode = {  // creates an entry node to lead to next functions
+          fn: Function,
+          cycle: 0,
+          orderN: 0,
+          nextNode: {},
+        };
+        this.lastNode = { // how do the previousNodes get deleted to not suck up memory?
+          fn: Function,
+          cycle: 0,
+          orderN: 0,
+          nextNode: {}          
+        };
+        this.eventManager = {};
+        console.log(`
+          The execution engine won't be able to soley
+          rely on an order given by a list.
+          The engine must be able to
+          introduce paths during it's execution
+          and not have data get filled up.
+        `);
+        this.odometer = {
+          cycle: iterOrder, 
+          orderN: iterOrder,
+          limit: Number.Max_SAFE_INTEGER,
+        };
+      }
+      odometer(){
+        this.odometer = {
+          cycle: 0, 
+          orderN: iterOrder,
+          limit: Number.MAX_SAFE_INTEGER
+        };
+      }
+      ctrl(){
+        {
+          "start": Function,
+          "prime":Function,
+          "restart": Function,
+          "stop": Function,
+          "kill": Function,
+        }
+      }
+      mode(){
+        {
+          "async": Function,
+          "sync": Function,
+        }
+      }      
+      createDependencyGraph() {
+        return createDependencyGraph(this.functions);
+      }
+    
+      executeFunctionsInDependencyOrder() {
+        function dfs(node) {
+          if (this.visited.has(node)) {
+            return;
+          }
+    
+          this.visited.add(node);
+          this.order.push(node);
+    
+          for (const neighbor of this.graph[node]) {
+            dfs.call(this, neighbor);
+          }
+        }
+    
+        for (const node in this.graph) {
+          dfs.call(this, node);
+        }
+    
+        for (const node of this.order) {
+          this.functions[node]();
+        }
+      }
+    }
+  </script>
+</html>
