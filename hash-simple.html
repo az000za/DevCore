@@ -1,0 +1,13 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="./ui/Data.js"></script>
+    <script type="text/javascript">
+        function simpleHash(data) {
+            let result = 0;
+            for (let char of data) {
+              result ^= char.charCodeAt();
+            }
+            return result;
+        }
+    </script>
+</html>
