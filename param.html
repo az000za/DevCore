@@ -1,0 +1,98 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="./ui/Data.js"></script>
+    <script type="text/javascript"></script>
+        class Param {
+            constructor(
+              name,
+              type,
+              defaultValue,
+              required,
+              description,
+              rangeConstraint,  
+              patternConstraint,
+              enumerationConstraint,
+              referentialIntegrityConstraint,
+              dataValidationConstraint
+            ) {
+              this.name = name;
+              this.type = type;
+              this.defaultValue = defaultValue;
+              this.required = required;
+              this.description = description;
+              this.rangeConstraint = rangeConstraint;
+              this.patternConstraint = patternConstraint;
+              this.enumerationConstraint = enumerationConstraint;
+              this.referentialIntegrityConstraint = referentialIntegrityConstraint;
+              this.dataValidationConstraint = dataValidationConstraint;
+            }
+          
+            validate(value) {
+              // Check type constraint
+              if (typeof value !== this.type) {
+                throw new TypeError(
+                  `Invalid parameter value: ${value} for parameter ${this.name} (expected type: ${this.type})`
+                );
+              }
+          
+              // Check range constraint
+              if (this.rangeConstraint !== null && this.rangeConstraint !== undefined) {
+                if (value < this.rangeConstraint[0] || value > this.rangeConstraint[1]) {
+                  throw new Error(
+                    `Parameter ${this.name} value out of range: ${value} (valid range: ${this.rangeConstraint})`
+                  );
+                }
+              }
+          
+              // Check pattern constraint
+              if (this.patternConstraint !== null && this.patternConstraint !== undefined) {
+                const regex = new RegExp(this.patternConstraint);
+                if (!regex.test(value)) {
+                  throw new Error(
+                    `Parameter ${this.name} value does not match the required pattern: ${value} (pattern: ${this.patternConstraint})`
+                  );
+                }
+              }
+          
+              // Check enumeration constraint
+              if (this.enumerationConstraint !== null && this.enumerationConstraint !== undefined) {
+                if (!this.enumerationConstraint.includes(value)) {
+                  throw new Error(
+                    `Parameter ${this.name} value not in the allowed enumeration: ${value} (valid options: ${this.enumerationConstraint})`
+                  );
+                }
+              }
+          
+              // Check referential integrity constraint
+              if (this.referentialIntegrityConstraint !== null && this.referentialIntegrityConstraint !== undefined) {
+                if (!this.referentialIntegrityConstraint(value)) {
+                  throw new Error(
+                    `Parameter ${this.name} value does not exist in the referenced entity: ${value}`
+                  );
+                }
+              }
+          
+              // Check data validation constraint
+              if (this.dataValidationConstraint !== null && this.dataValidationConstraint !== undefined) {
+                if (!this.dataValidationConstraint(value)) {
+                  throw new Error(
+                    `Parameter ${this.name} value does not meet the data validation rules: ${value} (validation criteria: ${this.dataValidationConstraint})`
+                  );
+                }
+              }
+            }
+          
+            getDefaultValue() {
+              return this.defaultValue;
+            }
+          
+            isRequired() {
+              return this.required;
+            }
+          
+            getDescription() {
+              return this.description;
+            }
+          }
+    </script>
+</html>
