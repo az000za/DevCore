@@ -1,0 +1,95 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="./importHTMLAPP.js"></script>
+    <script type="text/javascript" filename="DevCore.html">
+        const WEBAPPS = importHTMLAPP([
+            'https://az000za.github.io/ChannelWebAI/DevCore/Data.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Builder.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Application.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/API.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/AI.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/_A_L_L_.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Component.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Constructor.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Data.FunC.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Engine.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/FrameWork.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Hash-Simple.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Libary.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/List.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Module.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/NodeLinkedList.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Operators.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/OperatingSystem.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Param.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Server.html',
+            'https://az000za.github.io/ChannelWebAI/DevCore/Task.html'
+        ]);
+        class DevCore {
+            constructor(){
+                this.techstack = { // techstack means how everything is interfaced to eachother
+                    AI: function(){
+                        return new WEBAPPS.AI(...arguments);
+                    },
+                    _A_L_L_: function(){
+                        return new WEBAPPS._A_L_L_(...arguments);
+                    },
+                    // Param: function(){
+                    //     return new WEBAPPS.Param(...arguments);
+                    // },
+                    Computer: function(){
+                        return new WEBAPPS.Computer(...arguments);
+                    },
+                    OperatingSystem: function(){
+                        return new WEBAPPS.OperatingSystem(...arguments);
+                    },
+                    Data: function(){
+                        return new WEBAPPS.Data(...arguments);
+                    },
+                    Builder: function(){
+                        return new WEBAPPS.Builder(this);
+                    },
+                    Program: function(){
+                        return new WEBAPPS.Program(...arguments);
+                    },
+                    Engine: function(){
+                        return new WEBAPPS.Engine(...arguments);
+                    },
+                    FunC: function(){
+                        return new WEBAPPS.FunC(...arguments);
+                    },
+                    // Task: function(){
+                    //     return new WEBAPPS.Task(...arguments);
+                    // },
+                    Module: function(){
+                        return new WEBAPPS.Module(...arguments);
+                    },
+                    Package: function(){
+                        return new WEBAPPS.Package(...arguments);
+                    },
+                    Component: function(){
+                        return new WEBAPPS.Component(...arguments);
+                    },
+                    Library: function(){
+                        return new WEBAPPS.Library(...arguments);
+                    },
+                    FrameWork: function(){
+                        return new WEBAPPS.FrameWork(...arguments);
+                    },
+                    Server: function(){
+                        return new WEBAPPS.Server(...arguments);
+                    },
+                    API: function(){
+                        return new WEBAPPS.API(...arguments);
+                    },
+                    UI: function(){
+                        // makes any function into a form
+                    },
+                    Application: function(){
+                        return new WEBAPPS.Application(...arguments);
+                    },
+                }
+            }
+        }
+    </script>
+</html>
