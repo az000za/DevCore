@@ -1,0 +1,52 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="./ui/data.js"></script>
+    <script type="text/javascript">
+        class Task {
+            constructor(id, name, description, status, priority, dueDate) {
+              this.id = id;
+              this.name = name;
+              this.description = description;
+              this.status = status;
+              this.priority = priority;
+              this.dueDate = dueDate;
+            }
+          
+            getId() {
+              return this.id;
+            }
+          
+            getName() {
+              return this.name;
+            }
+          
+            getDescription() {
+              return this.description;
+            }
+          
+            getStatus() {
+              return this.status;
+            }
+          
+            setStatus(newStatus) {
+              this.status = newStatus;
+            }
+          
+            getPriority() {
+              return this.priority;
+            }
+          
+            setPriority(newPriority) {
+              this.priority = newPriority;
+            }
+          
+            getDueDate() {
+              return this.dueDate;
+            }
+          
+            setDueDate(newDueDate) {
+              this.dueDate = newDueDate;
+            }
+          }
+    </script>
+</html>
