@@ -1,0 +1,177 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript">
+        // All rule to follow. // all functions have inputs that derived from a type creation //
+        // this will make it so programs can get auto created.
+        function CONSTRUCTORFACTORY(env, goalFrom, goalTo, pathLinks = {}){
+          if (goal === "string") {
+            AI(goal);
+          }
+          else if (goalTo === goalFrom) {
+            
+          }
+          else if (goalTo === "object" && goalFrom === "object") {
+            type => type // this solves every computer problem  ... because ultimately, all data can never be represented as bits, but as optimial symbolic data types 
+            // a => a
+            // (typeA value) => (typeB value)
+            // plot paths from typeA to typeB
+            for (let func in env) {
+              if (typeAReturnsTypeB) {
+                return arguments;
+              } else {
+                pathLinks[func.name] = env[func.name];
+                CONSTRUCTORFACTORY(...arguments);
+              }
+            }
+          } else throw new Error();
+          this.craft();
+        }
+        const env = {
+          _(strings){
+            for (let string in strings) {
+              this[string] = value
+            }
+          },
+          Serial(){
+            
+          },
+          // Bit(){
+          //   this.position = 0;
+          //   this.state = false;
+          // },
+          Number(){
+        
+          },
+          Range(number){ // limitations
+            // systemLimitations
+            this.physicalParameterConstraint = number;
+            // this.desiredParameterConstraint = arguments[1];
+          },
+          DELTA(a,b) {
+            // this.changed = a != b;  // did last equal itself // this saves a lot of time on computing.
+            this.by0 = btoa(`${a}`); // 
+            this.by1 = a - b;
+            this.id = UUID();
+          },
+          Data(delta) {
+            this.creationID = id;
+            this.creationDate = Data.now();
+            this.value = "";
+          },
+          // function FN(name, typeInaId, typeOutaId){
+          //   // this  
+          // }
+          IO (data){
+        
+          },
+          Name(){
+        
+          },
+          Bit(){
+        
+          },
+          Context(){
+        
+          },
+        // class Product {
+        //   constructor(id, name, description, price) {
+        //     this.id = id;
+        //     this.name = name;
+        //     this.description = description;
+        //     this.price = price;
+        //   }
+        //   toString() {
+        //     return `Product: ${this.id} - ${this.name}`;
+        //   }
+        // }
+        
+        // class ProductFactory {
+        //   constructor() {
+        //     this.products = [];
+        //     this.nextID = 1;
+        //   }
+        
+        //   createProduct(name, description, price) {
+        //     const newProduct = new Product(this.nextID, name, description, price);
+        //     this.products.push(newProduct);
+        //     this.nextID++;
+        //     return newProduct;
+        //   }
+        
+        //   getAllProducts() {
+        //     return this.products;
+        //   }
+        
+        //   getProductById(id) {
+        //     return this.products.find((product) => product.id === id);
+        //   }
+        
+        //   updateProduct(product) {
+        //     const existingProduct = this.products.find((p) => p.id === product.id);
+        //     if (!existingProduct) {
+        //       throw new Error(`Product with ID ${product.id} does not exist`);
+        //     }
+        
+        //     existingProduct.name = product.name;
+        //     existingProduct.description = product.description;
+        //     existingProduct.price = product.price;
+        //   }
+        
+        //   deleteProduct(id) {
+        //     const productIndex = this.products.findIndex((product) => product.id === id);
+        //     if (productIndex >= 0) {
+        //       this.products.splice(productIndex, 1);
+        //     }
+        //   }
+        // }
+        
+        
+        
+        // class TypeFactory {
+        //     constructor() {
+        //       this.types = {};
+        //     }
+          
+        //     registerType(typeName, typeConstructor) {
+        //       if (typeof typeName !== 'string') {
+        //         throw new Error('Invalid type name type');
+        //       }
+          
+        //       if (typeof typeConstructor !== 'function') {
+        //         throw new Error('Invalid type constructor type');
+        //       }
+          
+        //       if (this.types[typeName]) {
+        //         throw new Error(`Type ${typeName} already exists`);
+        //       }
+          
+        //       this.types[typeName] = typeConstructor;
+        //     }
+          
+        //     createInstance(typeName, ...args) {
+        //       if (typeof typeName !== 'string') {
+        //         throw new Error('Invalid type name type');
+        //       }
+          
+        //       if (!this.types[typeName]) {
+        //         throw new Error(`Type ${typeName} does not exist`);
+        //       }
+          
+        //       const typeConstructor = this.types[typeName];
+        //       return new typeConstructor(...args);
+        //     }
+        // }
+        // function ParameterFactory(name, type, defaultValue) {
+        //   this.name = name;
+        //   this.type = type;
+        //   this.defaultValue = defaultValue;  
+        //   this.validate = function(value) {
+        //     if (typeof value !== this.type) {
+        //       throw new Error(`Invalid type for parameter ${this.name}`);
+        //     }
+        //   };
+        // }
+        
+        }
+  </script>
+</html>
