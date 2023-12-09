@@ -1,0 +1,101 @@
+
+module.exports = class List {
+    constructor(initialArray = []) {
+      this.list = initialArray;
+    }
+  
+    // Add an element to the end of the list
+    push(element) {
+      this.list.push(element);
+    }
+  
+    // Insert an element at a specific index
+    insert(index, element) {
+      this.list.splice(index, 0, element);
+    }
+  
+    // Remove the first occurrence of an element
+    remove(element) {
+      const index = this.list.indexOf(element);
+      if (index !== -1) {
+        this.list.splice(index, 1);
+      }
+    }
+  
+    // Remove the element at a specific index
+    removeAt(index) {
+      if (index >= 0 && index < this.list.length) {
+        this.list.splice(index, 1);
+      }
+    }
+  
+    // Get the element at a specific index
+    get(index) {
+      if (index >= 0 && index < this.list.length) {
+        return this.list[index];
+      }
+      return undefined;
+    }
+  
+    // Set the value at a specific index
+    set(index, value) {
+      if (index >= 0 && index < this.list.length) {
+        this.list[index] = value;
+      }
+    }
+  
+    // Check if the list contains an element
+    contains(element) {
+      return this.list.includes(element);
+    }
+  
+    // Check if the list is empty
+    isEmpty() {
+      return this.list.length === 0;
+    }
+  
+    // Get the length of the list
+    size() {
+      return this.list.length;
+    }
+  
+    // Reverse the order of the elements in the list
+    reverse() {
+      this.list.reverse();
+    }
+  
+    // Sort the elements in the list in ascending order
+    sort() {
+      this.list.sort((a, b) => a - b);
+    }
+  
+    // Filter the list based on a predicate function
+    filter(predicate) {
+      return this.list.filter(predicate);
+    }
+  
+    // Map the elements in the list to a new value using a mapper function
+    map(mapper) {
+      return this.list.map(mapper);
+    }
+  
+    // Reduce the elements in the list to a single value using a reducer function
+    reduce(reducer, initialValue) {
+      return this.list.reduce(reducer, initialValue);
+    }
+  
+    // Return a copy of the list
+    clone() {
+      return this.list.slice();
+    }
+  
+    // Clear the list
+    clear() {
+      this.list = [];
+    }
+  
+    // Print the list to the console
+    print() {
+      console.log(this.list);
+    }
+  }
