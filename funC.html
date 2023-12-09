@@ -1,0 +1,203 @@
+<html>
+    <body id="root"></body>
+    <script type="text/javascript" src="./ui/data.js"></script>
+    <script type="text/javascript"></script>
+        class FunC extends Data {
+            constructor(obj){
+              console.log("FunC only allows DotNotation methods");
+                const props = {};
+                props.name = new Data({
+                  fieldname: "name",
+                  description: "A place holder for a name",
+                  type: String,
+                  value: obj.name,
+                });
+                props.description = new Data({
+                  fieldname: "description",
+                  description: "A placeholder for the description",
+                  type: String,
+                  value: obj.description,
+                });
+                props.paramsIn = new Data({
+                  fieldname: "paramsIn",
+                  description: "A placeholder for the input-parameters",
+                  type: String,
+                  value: obj.paramsIn,
+                });
+                props.paramsOut = new Data({
+                  fieldname: "paramsOut",
+                  description: "A placeholder for the output-parameters",
+                  type: String,
+                  value: obj.paramsOut,
+                });
+                props.validation = new Data({
+                  fieldname: "validation",
+                  description: "Guards against",
+                  type: Function,
+                  value: obj.validation,
+                });
+                props.block = new Data({
+                  fieldname: "block",
+                  description: "The main code to execute",
+                  type: Function,
+                  value: obj.block,
+                });
+                props.spec = new Data({
+                  fieldname: "spec",
+                  description: "Specification code that tests the block",
+                  type: Function,
+                  value: obj.spec,
+                });
+                props.spec = new Data({
+                  fieldname: "pathway",
+                  description: "Pathway locations",
+                  type: Array,
+                  value: obj.locations,
+                });
+                props.executionTime = new Data({
+                  fieldname: "executionTime",
+                  description: "",
+                  type: String,
+                  value: "0",
+                });
+                props.executionCount = new Data({
+                  fieldname: "executionCount",
+                  description: "",
+                  type: String,
+                  value: "0",
+                });
+                props.memoryUsage = new Data({
+                  fieldname: "memoryUsage",
+                  description: "",
+                  type: String,
+                  value: "0",
+                });
+                props.cpuUsage = new Data({
+                  fieldname: "cpuUsage",
+                  description: "",
+                  type: String,
+                  value: "0",
+                });
+    
+                // cpu // gpu // tpu
+                props.optimizedForProcessor = new Data({
+                  fieldname: "optimizedForProcessor",
+                  description: "",
+                  type: String,
+                  value: "",
+                });
+                // sync, async, parallel, concurrency,
+                props.optimizedForExecutionOrder = new Data({
+                    fieldname: "optimizedForExecution",
+                    description: "",
+                    type: String,
+                    value: "",
+                });
+                props.optimizedForDataStructureSelection = new Data({
+                    fieldname: "optimizedForDataStructureSelection",
+                    description: "",
+                    type: String,
+                    value: "",
+                });
+                props.optimizedForAlgorithmApproach = new Data({
+                    fieldname: "optimizedForAlgorithmApproach",
+                    description: "",
+                    type: String,
+                    value: "",
+                })
+                props.optimizedForOperatingSystem = new Data({
+                    fieldname: "optimizedForOperatingSystem",
+                    description: "",
+                    type: String,
+                    value: "",
+                })
+                new Data({
+                  fieldname: "FunC",
+                  description: "Higher level of abstraction over a javascript function",
+                  type: Object,
+                  value: props,
+                });
+            }
+            // pathways = {
+            //     // // "127.0.0.1":"port/<path>",
+            //     // at
+            //     //     inCurrentProgram,
+            //     //     localAddress
+            //     //     remoteAddress
+            // }
+            execute(){
+              /**
+               * 
+               * needs to be able to execute function that is one the same computer
+               * or remote
+               * 
+               * meaning all functions are async clients
+               * 
+               * how do I ensure code is executed in the correct order?
+               */
+        
+              
+                
+              // const startTime = performance.now();
+              // const memoryUsageBefore = performance.memory.usedBytes;
+              // const result = this.function(...args);
+              // const memoryUsageAfter = performance.memory.usedBytes;
+              // const endTime = performance.now();
+              // this.executionTime += endTime - startTime;
+              // this.executionCount++;
+              // this.memoryUsage += memoryUsageAfter - memoryUsageBefore;
+              // const cpuUsageStart = performance.now();
+              // const cpuUsageEnd = performance.now();
+              // this.cpuUsage += cpuUsageEnd - cpuUsageStart;
+              // return result;
+            }
+            executeAsync(...args) {
+                const startTime = performance.now();
+                return new Promise((resolve, reject) => {
+                  this.function(...args).then((result) => {
+                    const endTime = performance.now();
+            
+                    this.asyncExecutionTime += endTime - startTime;
+                    this.asyncExecutionCount++;
+            
+                    resolve(result);
+                  }).catch((error) => {
+                    reject(error);
+                  });
+                });
+            }
+            getAverageExecutionTime() {
+              if (this.executionCount === 0) {
+                return 0;
+              }
+              return this.executionTime / this.executionCount;
+            }
+          
+            getExecutionCount() {
+              return this.executionCount;
+            }
+          
+            getAverageMemoryUsage() {
+              if (this.executionCount === 0) {
+                return 0;
+              }
+              return this.memoryUsage / this.executionCount;
+            }
+          
+            getAverageCPUUsage() {
+              if (this.executionCount === 0) {
+                return 0;
+              }
+              return this.cpuUsage / this.executionCount;
+            }
+          
+            printPerformanceMetrics() {
+              console.log(`Function Name: ${this.name}`);
+              console.log(`Average Execution Time: ${this.getAverageExecutionTime()} milliseconds`);
+              console.log(`Average Memory Usage: ${this.getAverageMemoryUsage()} bytes`);
+              console.log(`Average CPU Usage: ${this.getAverageCPUUsage()} milliseconds`);
+              console.log(`Execution Count: ${this.executionCount}`);
+            }
+        }
+    </script>
+</html>
