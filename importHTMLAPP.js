@@ -35,6 +35,7 @@ function importHTMLAPP(filePaths) {
   `);
   const Apps = {};  
     for (const filePath of filePaths) {
+      const url = filePath;
       fetch(url, {
         mode: "no-cors"
       })
