@@ -21,6 +21,12 @@ class WEBAPPS {
   async useAPP(appName){
     
   }
+  useGenericUI(){
+    
+  }
+  useCustomUI(){
+    
+  }
   parseAPPS(webAppLink){
     const url = webAppLink;
     const fileName = filePath.slice().split('/').pop();
