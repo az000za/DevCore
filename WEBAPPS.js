@@ -3,7 +3,7 @@ class WEBAPPS {
   constructor(webAppLinks){
       this.import(webAppLinks);
   }
-  import(webAppLinks){
+  fetch(webAppLinks){
         for (const filePath of filePaths) {
           const url = filePath;
           fetch(url, {
@@ -55,6 +55,3 @@ class WEBAPPS {
         }
   }
 }
-
-    return Apps;
-  }
